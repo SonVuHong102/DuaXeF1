@@ -21,7 +21,7 @@ public class ChangDuaDAO extends DAO {
     public ArrayList<ChangDua> getChangDuabyGiaiDua(GiaiDua giaiDua) {
     	ArrayList<ChangDua> list = new ArrayList<ChangDua>();
     	try {
-    		String query = "SELECT * FROM tblChangDua WHERE tblGiaiDuaid = ?";
+    		String query = "SELECT * FROM tblchangdua WHERE tblGiaiDuaid = ?";
     		ps = con.prepareStatement(query);
     		ps.setInt(1, giaiDua.getId());
     		rs = ps.executeQuery();

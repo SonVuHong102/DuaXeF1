@@ -1,13 +1,13 @@
 package model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ThanhVienBanToChuc {
 	private int id;
 	private String tenDangNhap;
 	private String matKhau;
 	private String ten;
-	private LocalDateTime ngaySinh;
+	private LocalDate ngaySinh;
 	private String diaChi;
 	private String email;
 	private String sdt;
@@ -15,7 +15,7 @@ public class ThanhVienBanToChuc {
 	
 	public ThanhVienBanToChuc() {}
 
-	public ThanhVienBanToChuc(int id, String tenDangNhap, String matKhau, String ten, LocalDateTime ngaySinh,
+	public ThanhVienBanToChuc(int id, String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh,
 			String diaChi, String email, String sdt, int vaiTro) {
 		this.id = id;
 		this.tenDangNhap = tenDangNhap;
@@ -28,7 +28,7 @@ public class ThanhVienBanToChuc {
 		this.vaiTro = vaiTro;
 	}
 
-	public ThanhVienBanToChuc(String tenDangNhap, String matKhau, String ten, LocalDateTime ngaySinh, String diaChi,
+	public ThanhVienBanToChuc(String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh, String diaChi,
 			String email, String sdt, int vaiTro) {
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;
@@ -72,11 +72,11 @@ public class ThanhVienBanToChuc {
 		this.ten = ten;
 	}
 
-	public LocalDateTime getNgaySinh() {
+	public LocalDate getNgaySinh() {
 		return ngaySinh;
 	}
 
-	public void setNgaySinh(LocalDateTime ngaySinh) {
+	public void setNgaySinh(LocalDate ngaySinh) {
 		this.ngaySinh = ngaySinh;
 	}
 

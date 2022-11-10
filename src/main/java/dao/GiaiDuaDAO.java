@@ -14,13 +14,13 @@ public class GiaiDuaDAO extends DAO {
 	private ResultSet rs = null;
     
     public GiaiDuaDAO() {
-    	this.con = this.getInstance();
+    	this.con = getInstance();
     }
     
     public ArrayList<GiaiDua> getGiaiDua() {
     	ArrayList<GiaiDua> list = new ArrayList<GiaiDua>();
     	try {
-    		String query = "SELECT * FROM tblGiaiDua";
+    		String query = "SELECT * FROM tblgiaidua";
     		ps = con.prepareStatement(query);
     		
     		rs = ps.executeQuery();
