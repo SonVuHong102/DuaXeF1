@@ -19,27 +19,24 @@ public class KetQuaTayDuaDAO extends DAO {
     	this.con = this.getInstance();
     }
     
-    public ArrayList<KetQuaTayDua> getKetQuaTayDuabyTayDuaDaDangKy(TayDuaDaDangKy tayDuaDaDangKy) {
-    	ArrayList<KetQuaTayDua> list = new ArrayList<KetQuaTayDua>();
+    public KetQuaTayDua getKetQuaTayDuabyTayDuaDaDangKy(TayDuaDaDangKy tayDuaDaDangKy) {
+    	KetQuaTayDua result = new KetQuaTayDua();
     	try {
     		String query = "SELECT * FROM tblketquataydua WHERE tblTayDuaDaDangKyid = ?";
     		ps = con.prepareStatement(query);
     		ps.setInt(1, tayDuaDaDangKy.getId());
     		rs = ps.executeQuery();
     		while(rs.next()) {
-    			KetQuaTayDua ketQuaTayDua = new KetQuaTayDua();
-    			ketQuaTayDua.setId(rs.getInt("id"));
-    			ketQuaTayDua.setSoVongHoanThanh(rs.getInt("soVongHoanThanh"));
-    			ketQuaTayDua.setThoiGianHoanThanh(rs.getInt("thoiGianHoanThanh"));
-    			ketQuaTayDua.setSuKien(rs.getInt("suKien"));
-    			ketQuaTayDua.setMoTa(rs.getString("moTa"));
-    			ketQuaTayDua.setTayDuaDaDangKy(tayDuaDaDangKy);
-    			list.add(ketQuaTayDua);
+    			result.setId(rs.getInt("id"));
+    			result.setSoVongHoanThanh(rs.getInt("soVongHoanThanh"));
+    			result.setThoiGianHoanThanh(rs.getInt("thoiGianHoanThanh"));
+    			result.setSuKien(rs.getInt("suKien"));
+    			result.setTayDuaDaDangKy(tayDuaDaDangKy);
     		}
     	} catch (SQLException e) {
     		e.printStackTrace();
     	}
-    	return list;
+    	return result;
     }
     
     public void saveKetQuaTayDua(ArrayList<KetQuaTayDua> listKetQuaTayDua) {

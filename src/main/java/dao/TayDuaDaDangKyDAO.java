@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.ChangDua;
+import model.DoiDua;
 import model.DonDangKy;
 import model.QuocTich;
 import model.TayDua;
@@ -42,7 +43,7 @@ public class TayDuaDaDangKyDAO extends DAO {
     			ResultSet rs1 = ps1.executeQuery();
     			while(rs1.next()) {
     				TayDuaDaDangKy tayDuaDaDangKy = new TayDuaDaDangKy();
-    				tayDuaDaDangKy.setId(rs.getInt("id"));
+    				tayDuaDaDangKy.setId(rs1.getInt("id"));
     				tayDuaDaDangKy.setDonDangKy(ddk);
     				String query2 = "SELECT * FROM tbltaydua WHERE id = ?";
     				PreparedStatement ps2 = con.prepareStatement(query2);
@@ -60,11 +61,23 @@ public class TayDuaDaDangKyDAO extends DAO {
         				ResultSet rs3 = ps3.executeQuery();
         				while(rs3.next()) {
         					QuocTich quocTich = new QuocTich();
-        					quocTich.setId(rs.getInt("id"));
-        					quocTich.setTen(rs.getString("ten"));
+        					quocTich.setId(rs3.getInt("id"));
+        					quocTich.setTen(rs3.getString("ten"));
         					tayDua.setQuocTich(quocTich);
         				}
         				tayDuaDaDangKy.setTayDua(tayDua);
+        				String query4 = "SELECT * FROM tbldoidua WHERE id = ?";
+    					PreparedStatement ps4 = con.prepareStatement(query4);
+        				ps4.setInt(1, rs2.getInt("tblDoiDuaid"));
+        				ResultSet rs4 = ps4.executeQuery();
+        				while(rs4.next()) {
+        					DoiDua doiDua = new DoiDua();
+        					doiDua.setId(rs4.getInt("id"));
+        					doiDua.setTen(rs4.getString("ten"));
+        					doiDua.setHang(rs4.getString("hang"));
+        					doiDua.setMoTa(rs4.getString("moTa"));
+        					tayDua.setDoiDua(doiDua);
+        				}
     				}
     				list.add(tayDuaDaDangKy);
     			}

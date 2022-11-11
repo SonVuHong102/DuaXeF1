@@ -6,20 +6,18 @@ public class KetQuaTayDua {
 	private int thoiGianHoanThanh;
 	private int diem;
 	private int suKien;
-	private String moTa;
 	private TayDuaDaDangKy tayDuaDaDangKy;
 	private ThanhVienBanToChuc thanhVienBanToChuc;
 	
 	public KetQuaTayDua() {}
 
-	public KetQuaTayDua(int id, int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, String moTa,
+	public KetQuaTayDua(int id, int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, 
 			TayDuaDaDangKy tayDuaDaDangKy, ThanhVienBanToChuc thanhVienBanToChuc) {
 		this.id = id;
 		this.soVongHoanThanh = soVongHoanThanh;
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
 		this.diem = diem;
 		this.suKien = suKien;
-		this.moTa = moTa;
 		this.tayDuaDaDangKy = tayDuaDaDangKy;
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
 	}
@@ -30,7 +28,6 @@ public class KetQuaTayDua {
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
 		this.diem = diem;
 		this.suKien = suKien;
-		this.moTa = moTa;
 		this.tayDuaDaDangKy = tayDuaDaDangKy;
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
 	}
@@ -75,14 +72,6 @@ public class KetQuaTayDua {
 		this.suKien = suKien;
 	}
 
-	public String getMoTa() {
-		return moTa;
-	}
-
-	public void setMoTa(String moTa) {
-		this.moTa = moTa;
-	}
-
 	public TayDuaDaDangKy getTayDuaDaDangKy() {
 		return tayDuaDaDangKy;
 	}
@@ -97,5 +86,20 @@ public class KetQuaTayDua {
 
 	public void setThanhVienBanToChuc(ThanhVienBanToChuc thanhVienBanToChuc) {
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
+	}
+	
+	public String getFormattedTime() {
+		int totalTime = this.thoiGianHoanThanh;
+		String hours = (totalTime / 3600) + "";
+		totalTime %= 3600;
+		String minutes = (totalTime / 60) + "";
+		totalTime %= 60;
+		String seconds = totalTime + "";
+		return hours + ":" + minutes + ":" + seconds;
+	}
+	
+	public void setRawTime(String formattedTime) {
+		String[] timeArray = formattedTime.split(":");
+		this.thoiGianHoanThanh = Integer.parseInt(timeArray[0])*3600 + Integer.parseInt(timeArray[1])*60 + Integer.parseInt(timeArray[2]);
 	}
 }

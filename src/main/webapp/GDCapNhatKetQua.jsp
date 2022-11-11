@@ -6,43 +6,108 @@
 <html>
 <head>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+<script>
+	function goBack() {
+		window.history.back()
+	}
+</script>
 </head>
 <body>
 	<div class="center">
 		<h1>Cập nhật kết quả</h1>
 
 		<form action="SVChonChangDua">
+			<h3>
+				Chặng đua đã chọn :
+				<c:out value="${changDuaDaChon.ten}" />
+			</h3>
 			<label for="giaiDua">Chọn chặng đua : </label> <select
 				name="tblChangDuaid" id="tblChangDuaid">
-				<c:forEach items="${listChangDua}" var="o">
-					<option value="${o.id}">${o.ten}</option>
+				<c:forEach items="${listChangDua}" var="changDua">
+					<c:choose>
+						<c:when
+							test="${changDuaDaChon != null && changDuaDaChon.id == changDua.id}">
+							<option value="${changDua.id}" selected>${changDua.ten}</option>
+						</c:when>
+						<c:otherwise>
+							<option value="${changDua.id}">${changDua.ten}</option>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</select> <input type="submit" value="Xác nhận">
 		</form>
-		<br>
-		<br>
-		<table>
-			<tr>
-				<th>STT</th>
-				<th>Tên</th>
-				<th>Đội đua</th>
-				<th>Hoàn Thành</th>
-				<th>Thời gian</th>
-				<th>Số vòng</th>
-			</tr>
-			<tr>
-				<td>Alfreds Futterkiste</td>
-				<td>Maria Anders</td>
-				<td>Germany</td>
-				<td><select name="tblChangDuaid" id="tblChangDuaid">
-						<option value="aa">aa</option>
-						<option value="bb">bb</option>
-						<option value="cc">cc</option>
-				</select></td>
-				<td>Germany</td>
-				<td>Germany</td>
-			</tr>
-		</table>
+		<c:set var="listChangDua" scope="session" value="${listChangDua}" />
+		<br> <br>
+		<form action="SVLuuKetQua">
+			<table>
+				<tr>
+					<th>STT</th>
+					<th>Tên</th>
+					<th>Đội đua</th>
+					<th>Hoàn thành</th>
+					<th>Thời gian (hh:mm:ss)</th>
+					<th>Số vòng</th>
+				</tr>
+				<c:set var="count" value="1" scope="page" />
+				<c:forEach items="${listKetQuaTayDua}" var="ketQuaTayDua">
+					<tr>
+						<td><c:out value="${count}" /></td>
+						<c:set var="count" value="${count + 1}" scope="page" />
+						<td><c:out value="${ketQuaTayDua.tayDuaDaDangKy.tayDua.ten}" /></td>
+						<td><c:out
+								value="${ketQuaTayDua.tayDuaDaDangKy.tayDua.doiDua.ten}" /></td>
+						<td><select
+							name="suKien_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
+							id="suKien_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}">
+								<c:choose>
+									<c:when
+										test="${ketQuaTayDua.suKien != null && ketQuaTayDua.suKien == \"0\"}">
+										<option value="0" selected>Hoàn thành</option>
+									</c:when>
+									<c:otherwise>
+										<option value="0">Hoàn thành</option>
+									</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when
+										test="${ketQuaTayDua.suKien != null && ketQuaTayDua.suKien == \"1\"}">
+										<option value="1" selected>Bỏ cuộc</option>
+									</c:when>
+									<c:otherwise>
+										<option value="1">Bỏ cuộc</option>
+									</c:otherwise>
+								</c:choose>
+								<c:choose>
+									<c:when
+										test="${ketQuaTayDua.suKien != null && ketQuaTayDua.suKien == \"2\"}">
+										<option value="2" selected>Tai nạn</option>
+									</c:when>
+									<c:otherwise>
+										<option value="2">Tai nạn</option>
+									</c:otherwise>
+								</c:choose>
+						</select></td>
+						<td><input type="text"
+							id="thoiGian_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
+							name="thoiGian_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
+							value="${ketQuaTayDua.thoiGianHoanThanh}"
+							pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
+							placeholder="hh:mm:ss"></td>
+						<td><input type="text"
+							id="soVong_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
+							name="soVong_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
+							value="${ketQuaTayDua.soVongHoanThanh}" pattern="^\d+$" min="0"
+							max="100"></td>
+					</tr>
+				</c:forEach>
+			</table>
+			<br> <br> 
+			<button type="button" onclick="goBack()">Back</button>
+			<input type="reset" value="Reset" /> 
+			<input type="submit" value="Submit" />
+		</form>
+		<c:set var="listKetQuaTayDua" scope="session"
+			value="${listKetQuaTayDua}" />
 	</div>
 </body>
 </html>
