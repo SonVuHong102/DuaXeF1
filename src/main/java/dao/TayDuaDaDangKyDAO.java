@@ -36,6 +36,9 @@ public class TayDuaDaDangKyDAO extends DAO {
     			donDangKy.setChangDua(changDua);
     			listDonDangKy.add(donDangKy);
     		}
+    		if(listDonDangKy == null || listDonDangKy.size() == 0) {
+    			return list;
+    		}
     		for(DonDangKy ddk: listDonDangKy) {
     			String query1 = "SELECT * FROM tbltayduadadangky WHERE tblDonDangKyid = ?";
     			PreparedStatement ps1 = con.prepareStatement(query1);
