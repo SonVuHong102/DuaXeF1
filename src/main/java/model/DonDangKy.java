@@ -2,21 +2,21 @@ package model;
 
 public class DonDangKy {
 	private int id;
+	private int soLuongTayDua;
 	private ChangDua changDua;
 	private DoiDua doiDua;
-	
-	
-	
+
 	public DonDangKy() {
 	}
-
-	public DonDangKy(int id, ChangDua changDua, DoiDua doiDua) {
+	
+	public DonDangKy(int id, int soTayDua, ChangDua changDua, DoiDua doiDua) {
 		this.id = id;
+		this.soLuongTayDua = soTayDua;
 		this.changDua = changDua;
 		this.doiDua = doiDua;
 	}
-
-	public DonDangKy(ChangDua changDua, DoiDua doiDua) {
+	public DonDangKy(int soTayDua, ChangDua changDua, DoiDua doiDua) {
+		this.soLuongTayDua = soTayDua;
 		this.changDua = changDua;
 		this.doiDua = doiDua;
 	}
@@ -43,5 +43,13 @@ public class DonDangKy {
 
 	public void setDoiDua(DoiDua doiDua) {
 		this.doiDua = doiDua;
+	}
+
+	public int getSoLuongTayDua() {
+		return soLuongTayDua;
+	}
+
+	public void setSoLuongTayDua(int soLuongTayDua) {
+		this.soLuongTayDua = soLuongTayDua;
 	}
 }

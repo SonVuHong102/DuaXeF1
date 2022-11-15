@@ -7,12 +7,12 @@ public class TayDua {
 	private String ten;
 	private LocalDate ngaySinh;
 	private String tieuSu;
-	private QuocTich quocTich;
+	private String quocTich;
 	private DoiDua doiDua;
 	
 	public TayDua() {}
 
-	public TayDua(int id, String ten, LocalDate ngaySinh, String tieuSu, QuocTich quocTich, DoiDua doiDua) {
+	public TayDua(int id, String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua doiDua) {
 		this.id = id;
 		this.ten = ten;
 		this.ngaySinh = ngaySinh;
@@ -21,7 +21,7 @@ public class TayDua {
 		this.doiDua = doiDua;
 	}
 
-	public TayDua(String ten, LocalDate ngaySinh, String tieuSu, QuocTich quocTich, DoiDua doiDua) {
+	public TayDua(String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua doiDua) {
 		this.ten = ten;
 		this.ngaySinh = ngaySinh;
 		this.tieuSu = tieuSu;
@@ -61,11 +61,11 @@ public class TayDua {
 		this.tieuSu = tieuSu;
 	}
 
-	public QuocTich getQuocTich() {
+	public String getQuocTich() {
 		return quocTich;
 	}
 
-	public void setQuocTich(QuocTich quocTich) {
+	public void setQuocTich(String quocTich) {
 		this.quocTich = quocTich;
 	}
 

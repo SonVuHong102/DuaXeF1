@@ -90,7 +90,7 @@
 						<td><input type="text"
 							id="thoiGian_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
 							name="thoiGian_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
-							value="${ketQuaTayDua.thoiGianHoanThanh}"
+							value="${ketQuaTayDua.thoiGianHoanThanhStr}"
 							pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
 							placeholder="hh:mm:ss"></td>
 						<td><input type="text"

@@ -9,6 +9,8 @@ public class KetQuaTayDua {
 	private TayDuaDaDangKy tayDuaDaDangKy;
 	private ThanhVienBanToChuc thanhVienBanToChuc;
 	
+	private String thoiGianHoanThanhStr = "";
+	
 	public KetQuaTayDua() {}
 
 	public KetQuaTayDua(int id, int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, 
@@ -20,6 +22,7 @@ public class KetQuaTayDua {
 		this.suKien = suKien;
 		this.tayDuaDaDangKy = tayDuaDaDangKy;
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
+		this.thoiGianHoanThanhStr = getFormattedTime();
 	}
 
 	public KetQuaTayDua(int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, String moTa,
@@ -30,6 +33,7 @@ public class KetQuaTayDua {
 		this.suKien = suKien;
 		this.tayDuaDaDangKy = tayDuaDaDangKy;
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
+		this.thoiGianHoanThanhStr = getFormattedTime();
 	}
 
 	public int getId() {
@@ -54,6 +58,7 @@ public class KetQuaTayDua {
 
 	public void setThoiGianHoanThanh(int thoiGianHoanThanh) {
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
+		this.thoiGianHoanThanhStr = getFormattedTime();
 	}
 
 	public int getDiem() {
@@ -88,13 +93,17 @@ public class KetQuaTayDua {
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
 	}
 	
+	public String getThoiGianHoanThanhStr() {
+		return this.thoiGianHoanThanhStr;
+	}
+	
 	public String getFormattedTime() {
 		int totalTime = this.thoiGianHoanThanh;
-		String hours = (totalTime / 3600) + "";
+		String hours = String.format("%02d",totalTime/3600);
 		totalTime %= 3600;
-		String minutes = (totalTime / 60) + "";
+		String minutes = String.format("%02d",totalTime/60);
 		totalTime %= 60;
-		String seconds = totalTime + "";
+		String seconds = String.format("%02d",totalTime);
 		return hours + ":" + minutes + ":" + seconds;
 	}
 	

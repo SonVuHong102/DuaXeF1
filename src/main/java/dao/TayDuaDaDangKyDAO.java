@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import model.ChangDua;
 import model.DoiDua;
 import model.DonDangKy;
-import model.QuocTich;
 import model.TayDua;
 import model.TayDuaDaDangKy;
 
@@ -58,27 +57,18 @@ public class TayDuaDaDangKyDAO extends DAO {
     					tayDua.setTen(rs2.getString("ten"));
     					tayDua.setNgaySinh(rs2.getDate("ngaySinh").toLocalDate());
     					tayDua.setTieuSu(rs2.getString("tieuSu"));
-    					String query3 = "SELECT * FROM tblquoctich WHERE id = ?";
+    					tayDua.setQuocTich(rs2.getString("quocTich"));
+        				tayDuaDaDangKy.setTayDua(tayDua);
+        				String query3 = "SELECT * FROM tbldoidua WHERE id = ?";
     					PreparedStatement ps3 = con.prepareStatement(query3);
-        				ps3.setInt(1, rs2.getInt("tblQuocTichid"));
+        				ps3.setInt(1, rs2.getInt("tblDoiDuaid"));
         				ResultSet rs3 = ps3.executeQuery();
         				while(rs3.next()) {
-        					QuocTich quocTich = new QuocTich();
-        					quocTich.setId(rs3.getInt("id"));
-        					quocTich.setTen(rs3.getString("ten"));
-        					tayDua.setQuocTich(quocTich);
-        				}
-        				tayDuaDaDangKy.setTayDua(tayDua);
-        				String query4 = "SELECT * FROM tbldoidua WHERE id = ?";
-    					PreparedStatement ps4 = con.prepareStatement(query4);
-        				ps4.setInt(1, rs2.getInt("tblDoiDuaid"));
-        				ResultSet rs4 = ps4.executeQuery();
-        				while(rs4.next()) {
         					DoiDua doiDua = new DoiDua();
-        					doiDua.setId(rs4.getInt("id"));
-        					doiDua.setTen(rs4.getString("ten"));
-        					doiDua.setHang(rs4.getString("hang"));
-        					doiDua.setMoTa(rs4.getString("moTa"));
+        					doiDua.setId(rs3.getInt("id"));
+        					doiDua.setTen(rs3.getString("ten"));
+        					doiDua.setHang(rs3.getString("hang"));
+        					doiDua.setMoTa(rs3.getString("moTa"));
         					tayDua.setDoiDua(doiDua);
         				}
     				}
