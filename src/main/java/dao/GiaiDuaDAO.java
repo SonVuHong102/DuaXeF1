@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import model.GiaiDua;
 
@@ -22,11 +23,11 @@ public class GiaiDuaDAO extends DAO {
     	try {
     		String query = "SELECT * FROM tblgiaidua";
     		ps = con.prepareStatement(query);
-    		
     		rs = ps.executeQuery();
     		while(rs.next()) {
     			list.add(new GiaiDua(rs.getInt("id"), rs.getString("ten"), rs.getInt("muaGiai")));
     		}
+    		Collections.reverse(list);
     	} catch (SQLException e) {
     		e.printStackTrace();
     	}
