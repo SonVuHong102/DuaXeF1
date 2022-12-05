@@ -37,7 +37,13 @@ public class SVChonChangDua extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<ChangDua> listChangDua = (ArrayList<ChangDua>) request.getSession().getAttribute("listChangDua");
-		int tblChangDuaid = Integer.parseInt(request.getParameter("tblChangDuaid"));
+		String tblChangDuaidStr = request.getParameter("tblChangDuaid");
+		if(tblChangDuaidStr == null) {
+			String url = "/GDCapNhatKetQua.jsp";
+			request.getSession().getServletContext().getRequestDispatcher(url).forward(request, response);
+			return;
+		}
+		int tblChangDuaid = Integer.parseInt(tblChangDuaidStr);
 		ChangDua changDuaDaChon = new ChangDua();
 		for(ChangDua changDua: listChangDua) {
 			if(changDua.getId() == tblChangDuaid) {

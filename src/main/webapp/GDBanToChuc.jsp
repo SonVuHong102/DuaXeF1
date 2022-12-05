@@ -11,7 +11,7 @@
 	<div class="center">
 		<h1>Trang chủ ban tổ chức</h1>
 
-		<form action="SVCapNhatKetQua">
+		<form action="SVCapNhatKetQua" method="post">
 			<label for="giaiDua">Chọn giải đua : </label> <select
 				name="tblGiaiDuaid" id="giaiDua">
 				<c:forEach items="${listGiaiDua}" var="o">

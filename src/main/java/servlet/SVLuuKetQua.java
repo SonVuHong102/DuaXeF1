@@ -33,15 +33,24 @@ public class SVLuuKetQua extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		ThanhVienBanToChuc thanhVienBanToChuc = (ThanhVienBanToChuc) request.getSession().getAttribute("thanhVienBanToChuc");
 		ArrayList<KetQuaTayDua> listKetQuaTayDua = (ArrayList<KetQuaTayDua>) request.getSession().getAttribute("listKetQuaTayDua");
 		if(listKetQuaTayDua == null || listKetQuaTayDua.size() == 0) {
+			String url = "/GDCapNhatKetQua.jsp";
+			request.getSession().getServletContext().getRequestDispatcher(url).forward(request, response);
 			return;
 		}
 		for(KetQuaTayDua kqtd: listKetQuaTayDua) {
 			int tblTayDuaDaDangKyid = kqtd.getTayDuaDaDangKy().getId();
 			String suKien = request.getParameter("suKien_tayDuaDaDangKy" + tblTayDuaDaDangKyid);
-			log(suKien);
 			kqtd.setSuKien(Integer.parseInt(suKien));
 			if(suKien.compareTo("0") == 0) {
 				String formattedTime = request.getParameter("thoiGian_tayDuaDaDangKy" + tblTayDuaDaDangKyid);
@@ -61,14 +70,6 @@ public class SVLuuKetQua extends HttpServlet {
 		request.getSession().removeAttribute("listKetQuaTayDua");
 		String url = "/GDCapNhatKetQua.jsp";
 		request.getSession().getServletContext().getRequestDispatcher(url).forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

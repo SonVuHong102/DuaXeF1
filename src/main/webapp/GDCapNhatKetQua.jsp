@@ -38,7 +38,7 @@
 		</form>
 		<c:set var="listChangDua" scope="session" value="${listChangDua}" />
 		<br> <br>
-		<form action="SVLuuKetQua">
+		<form action="SVLuuKetQua" method="post">
 			<table>
 				<tr>
 					<th>STT</th>
@@ -93,11 +93,11 @@
 							value="${ketQuaTayDua.thoiGianHoanThanhStr}"
 							pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}"
 							placeholder="hh:mm:ss"></td>
-						<td><input type="text"
+						<td><input type="number"
 							id="soVong_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
 							name="soVong_tayDuaDaDangKy${ketQuaTayDua.tayDuaDaDangKy.id}"
 							value="${ketQuaTayDua.soVongHoanThanh}" pattern="^\d+$" min="0"
-							max="100"></td>
+							max="${changDuaDaChon.soVongDua}"></td>
 					</tr>
 				</c:forEach>
 			</table>
