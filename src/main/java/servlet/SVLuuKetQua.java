@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.CapNhatKetQuaController;
-import model.KetQuaTayDua;
-import model.ThanhVienBanToChuc;
+import model.KetQuaTayDua523;
+import model.ThanhVienBanToChuc523;
 
 /**
  * Servlet implementation class SVLuuKetQua
@@ -41,14 +41,14 @@ public class SVLuuKetQua extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ThanhVienBanToChuc thanhVienBanToChuc = (ThanhVienBanToChuc) request.getSession().getAttribute("thanhVienBanToChuc");
-		ArrayList<KetQuaTayDua> listKetQuaTayDua = (ArrayList<KetQuaTayDua>) request.getSession().getAttribute("listKetQuaTayDua");
+		ThanhVienBanToChuc523 thanhVienBanToChuc = (ThanhVienBanToChuc523) request.getSession().getAttribute("thanhVienBanToChuc");
+		ArrayList<KetQuaTayDua523> listKetQuaTayDua = (ArrayList<KetQuaTayDua523>) request.getSession().getAttribute("listKetQuaTayDua");
 		if(listKetQuaTayDua == null || listKetQuaTayDua.size() == 0) {
 			String url = "/GDCapNhatKetQua.jsp";
 			request.getSession().getServletContext().getRequestDispatcher(url).forward(request, response);
 			return;
 		}
-		for(KetQuaTayDua kqtd: listKetQuaTayDua) {
+		for(KetQuaTayDua523 kqtd: listKetQuaTayDua) {
 			int tblTayDuaDaDangKyid = kqtd.getTayDuaDaDangKy().getId();
 			String suKien = request.getParameter("suKien_tayDuaDaDangKy" + tblTayDuaDaDangKyid);
 			kqtd.setSuKien(Integer.parseInt(suKien));

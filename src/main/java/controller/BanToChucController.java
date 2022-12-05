@@ -2,12 +2,12 @@ package controller;
 
 import java.util.ArrayList;
 
-import dao.GiaiDuaDAO;
-import model.GiaiDua;
+import dao.GiaiDuaDAO523;
+import model.GiaiDua523;
 
 public class BanToChucController {
-	public ArrayList<GiaiDua> getGiaiDua() {
-		GiaiDuaDAO gdd = new GiaiDuaDAO();
+	public ArrayList<GiaiDua523> getGiaiDua() {
+		GiaiDuaDAO523 gdd = new GiaiDuaDAO523();
 		return gdd.getGiaiDua();
 	}
 }

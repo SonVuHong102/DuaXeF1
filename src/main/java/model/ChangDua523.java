@@ -2,19 +2,19 @@ package model;
 
 import java.time.LocalDate;
 
-public class ChangDua {
+public class ChangDua523 {
 	private int id;
 	private String ten;
 	private int soVongDua;
 	private String diaDiem;
 	private LocalDate thoiGian;
 	private String mota;
-	private GiaiDua giaiDua;
+	private GiaiDua523 giaiDua;
 	
-	public ChangDua() {}
+	public ChangDua523() {}
 
-	public ChangDua(int id, String ten, int soVongDua, LocalDate thoiGian, String diaDiem, String mota,
-			GiaiDua giaiDua) {
+	public ChangDua523(int id, String ten, int soVongDua, LocalDate thoiGian, String diaDiem, String mota,
+			GiaiDua523 giaiDua) {
 		this.id = id;
 		this.ten = ten;
 		this.soVongDua = soVongDua;
@@ -24,7 +24,7 @@ public class ChangDua {
 		this.giaiDua = giaiDua;
 	}
 
-	public ChangDua(String ten, int soVongDua, LocalDate thoiGian, String diaDiem, String mota, GiaiDua giaiDua) {
+	public ChangDua523(String ten, int soVongDua, LocalDate thoiGian, String diaDiem, String mota, GiaiDua523 giaiDua) {
 		this.ten = ten;
 		this.soVongDua = soVongDua;
 		this.diaDiem = diaDiem;
@@ -81,11 +81,11 @@ public class ChangDua {
 		this.mota = mota;
 	}
 
-	public GiaiDua getGiaiDua() {
+	public GiaiDua523 getGiaiDua() {
 		return giaiDua;
 	}
 
-	public void setGiaiDua(GiaiDua giaiDua) {
+	public void setGiaiDua(GiaiDua523 giaiDua) {
 		this.giaiDua = giaiDua;
 	}
 }

@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class ThanhVienBanToChuc {
+public class ThanhVienBanToChuc523 {
 	private int id;
 	private String tenDangNhap;
 	private String matKhau;
@@ -13,9 +13,9 @@ public class ThanhVienBanToChuc {
 	private String sdt;
 	private int vaiTro;
 	
-	public ThanhVienBanToChuc() {}
+	public ThanhVienBanToChuc523() {}
 
-	public ThanhVienBanToChuc(int id, String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh,
+	public ThanhVienBanToChuc523(int id, String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh,
 			String diaChi, String email, String sdt, int vaiTro) {
 		this.id = id;
 		this.tenDangNhap = tenDangNhap;
@@ -28,7 +28,7 @@ public class ThanhVienBanToChuc {
 		this.vaiTro = vaiTro;
 	}
 
-	public ThanhVienBanToChuc(String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh, String diaChi,
+	public ThanhVienBanToChuc523(String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh, String diaChi,
 			String email, String sdt, int vaiTro) {
 		this.tenDangNhap = tenDangNhap;
 		this.matKhau = matKhau;

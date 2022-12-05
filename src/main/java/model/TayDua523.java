@@ -2,17 +2,17 @@ package model;
 
 import java.time.LocalDate;
 
-public class TayDua {
+public class TayDua523 {
 	private int id;
 	private String ten;
 	private LocalDate ngaySinh;
 	private String tieuSu;
 	private String quocTich;
-	private DoiDua doiDua;
+	private DoiDua523 doiDua;
 	
-	public TayDua() {}
+	public TayDua523() {}
 
-	public TayDua(int id, String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua doiDua) {
+	public TayDua523(int id, String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua523 doiDua) {
 		this.id = id;
 		this.ten = ten;
 		this.ngaySinh = ngaySinh;
@@ -21,7 +21,7 @@ public class TayDua {
 		this.doiDua = doiDua;
 	}
 
-	public TayDua(String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua doiDua) {
+	public TayDua523(String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua523 doiDua) {
 		this.ten = ten;
 		this.ngaySinh = ngaySinh;
 		this.tieuSu = tieuSu;
@@ -69,11 +69,11 @@ public class TayDua {
 		this.quocTich = quocTich;
 	}
 
-	public DoiDua getDoiDua() {
+	public DoiDua523 getDoiDua() {
 		return doiDua;
 	}
 
-	public void setDoiDua(DoiDua doiDua) {
+	public void setDoiDua(DoiDua523 doiDua) {
 		this.doiDua = doiDua;
 	}
 }

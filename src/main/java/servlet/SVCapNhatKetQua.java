@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.CapNhatKetQuaController;
-import model.ChangDua;
-import model.GiaiDua;
-import model.ThanhVienBanToChuc;
+import model.ChangDua523;
+import model.GiaiDua523;
+import model.ThanhVienBanToChuc523;
 
 /**
  * Servlet implementation class SVCapNhatKetQua
@@ -45,10 +45,10 @@ public class SVCapNhatKetQua extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int tblGiaiDuaid = Integer.parseInt(request.getParameter("tblGiaiDuaid"));
-		GiaiDua giaiDua = new GiaiDua();
+		GiaiDua523 giaiDua = new GiaiDua523();
 		giaiDua.setId(tblGiaiDuaid);
 		CapNhatKetQuaController capNhatKetQuaController = new CapNhatKetQuaController();
-		ArrayList<ChangDua> listChangDua = capNhatKetQuaController.getChangDuabyGiaiDua(giaiDua);
+		ArrayList<ChangDua523> listChangDua = capNhatKetQuaController.getChangDuabyGiaiDua(giaiDua);
 		request.setAttribute("listChangDua", listChangDua);
 		ServletContext sc = request.getSession().getServletContext();
 		sc.getRequestDispatcher("/GDCapNhatKetQua.jsp").forward(request, response);

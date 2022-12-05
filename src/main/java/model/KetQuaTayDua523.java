@@ -1,20 +1,20 @@
 package model;
 
-public class KetQuaTayDua {
+public class KetQuaTayDua523 {
 	private int id;
 	private int soVongHoanThanh;
 	private int thoiGianHoanThanh;
 	private int diem;
 	private int suKien;
-	private TayDuaDaDangKy tayDuaDaDangKy;
-	private ThanhVienBanToChuc thanhVienBanToChuc;
+	private TayDuaDaDangKy523 tayDuaDaDangKy;
+	private ThanhVienBanToChuc523 thanhVienBanToChuc;
 	
 	private String thoiGianHoanThanhStr = "";
 	
-	public KetQuaTayDua() {}
+	public KetQuaTayDua523() {}
 
-	public KetQuaTayDua(int id, int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, 
-			TayDuaDaDangKy tayDuaDaDangKy, ThanhVienBanToChuc thanhVienBanToChuc) {
+	public KetQuaTayDua523(int id, int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, 
+			TayDuaDaDangKy523 tayDuaDaDangKy, ThanhVienBanToChuc523 thanhVienBanToChuc) {
 		this.id = id;
 		this.soVongHoanThanh = soVongHoanThanh;
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
@@ -25,8 +25,8 @@ public class KetQuaTayDua {
 		this.thoiGianHoanThanhStr = getFormattedTime();
 	}
 
-	public KetQuaTayDua(int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, String moTa,
-			TayDuaDaDangKy tayDuaDaDangKy, ThanhVienBanToChuc thanhVienBanToChuc) {
+	public KetQuaTayDua523(int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, String moTa,
+			TayDuaDaDangKy523 tayDuaDaDangKy, ThanhVienBanToChuc523 thanhVienBanToChuc) {
 		this.soVongHoanThanh = soVongHoanThanh;
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
 		this.diem = diem;
@@ -77,19 +77,19 @@ public class KetQuaTayDua {
 		this.suKien = suKien;
 	}
 
-	public TayDuaDaDangKy getTayDuaDaDangKy() {
+	public TayDuaDaDangKy523 getTayDuaDaDangKy() {
 		return tayDuaDaDangKy;
 	}
 
-	public void setTayDuaDaDangKy(TayDuaDaDangKy tayDuaDaDangKy) {
+	public void setTayDuaDaDangKy(TayDuaDaDangKy523 tayDuaDaDangKy) {
 		this.tayDuaDaDangKy = tayDuaDaDangKy;
 	}
 
-	public ThanhVienBanToChuc getThanhVienBanToChuc() {
+	public ThanhVienBanToChuc523 getThanhVienBanToChuc() {
 		return thanhVienBanToChuc;
 	}
 
-	public void setThanhVienBanToChuc(ThanhVienBanToChuc thanhVienBanToChuc) {
+	public void setThanhVienBanToChuc(ThanhVienBanToChuc523 thanhVienBanToChuc) {
 		this.thanhVienBanToChuc = thanhVienBanToChuc;
 	}
 	

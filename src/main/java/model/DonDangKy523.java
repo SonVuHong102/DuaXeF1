@@ -1,21 +1,21 @@
 package model;
 
-public class DonDangKy {
+public class DonDangKy523 {
 	private int id;
 	private int soLuongTayDua;
-	private ChangDua changDua;
-	private DoiDua doiDua;
+	private ChangDua523 changDua;
+	private DoiDua523 doiDua;
 
-	public DonDangKy() {
+	public DonDangKy523() {
 	}
 	
-	public DonDangKy(int id, int soTayDua, ChangDua changDua, DoiDua doiDua) {
+	public DonDangKy523(int id, int soTayDua, ChangDua523 changDua, DoiDua523 doiDua) {
 		this.id = id;
 		this.soLuongTayDua = soTayDua;
 		this.changDua = changDua;
 		this.doiDua = doiDua;
 	}
-	public DonDangKy(int soTayDua, ChangDua changDua, DoiDua doiDua) {
+	public DonDangKy523(int soTayDua, ChangDua523 changDua, DoiDua523 doiDua) {
 		this.soLuongTayDua = soTayDua;
 		this.changDua = changDua;
 		this.doiDua = doiDua;
@@ -29,19 +29,19 @@ public class DonDangKy {
 		this.id = id;
 	}
 
-	public ChangDua getChangDua() {
+	public ChangDua523 getChangDua() {
 		return changDua;
 	}
 
-	public void setChangDua(ChangDua changDua) {
+	public void setChangDua(ChangDua523 changDua) {
 		this.changDua = changDua;
 	}
 
-	public DoiDua getDoiDua() {
+	public DoiDua523 getDoiDua() {
 		return doiDua;
 	}
 
-	public void setDoiDua(DoiDua doiDua) {
+	public void setDoiDua(DoiDua523 doiDua) {
 		this.doiDua = doiDua;
 	}
 

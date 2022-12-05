@@ -1,21 +1,21 @@
 package model;
 
-public class DoiDua {
+public class DoiDua523 {
 	private int id;
 	private String ten;
 	private String hang;
 	private String moTa;
 	
-	public DoiDua() {}
+	public DoiDua523() {}
 
-	public DoiDua(int id, String ten, String hang, String moTa) {
+	public DoiDua523(int id, String ten, String hang, String moTa) {
 		this.id = id;
 		this.ten = ten;
 		this.hang = hang;
 		this.moTa = moTa;
 	}
 
-	public DoiDua(String ten, String hang, String moTa) {
+	public DoiDua523(String ten, String hang, String moTa) {
 		this.ten = ten;
 		this.hang = hang;
 		this.moTa = moTa;

@@ -7,25 +7,25 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import model.GiaiDua;
+import model.GiaiDua523;
 
-public class GiaiDuaDAO extends DAO {
+public class GiaiDuaDAO523 extends DAO523 {
 	private Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
     
-    public GiaiDuaDAO() {
+    public GiaiDuaDAO523() {
     	this.con = getInstance();
     }
     
-    public ArrayList<GiaiDua> getGiaiDua() {
-    	ArrayList<GiaiDua> list = new ArrayList<GiaiDua>();
+    public ArrayList<GiaiDua523> getGiaiDua() {
+    	ArrayList<GiaiDua523> list = new ArrayList<GiaiDua523>();
     	try {
-    		String query = "SELECT * FROM tblgiaidua";
+    		String query = "SELECT * FROM tblgiaidua523";
     		ps = con.prepareStatement(query);
     		rs = ps.executeQuery();
     		while(rs.next()) {
-    			list.add(new GiaiDua(rs.getInt("id"), rs.getString("ten"), rs.getInt("muaGiai")));
+    			list.add(new GiaiDua523(rs.getInt("id"), rs.getString("ten"), rs.getInt("muaGiai")));
     		}
     		Collections.reverse(list);
     	} catch (SQLException e) {

@@ -1,18 +1,18 @@
 package model;
 
-public class GiaiDua {
+public class GiaiDua523 {
 	private int id;
 	private String ten;
 	private int muaGiai;
 	
-	public GiaiDua() {}
+	public GiaiDua523() {}
 	
-	public GiaiDua(int id, String ten, int muaGiai) {
+	public GiaiDua523(int id, String ten, int muaGiai) {
 		this.id = id;
 		this.ten = ten;
 		this.muaGiai = muaGiai;
 	}
-	public GiaiDua(String ten, int muaGiai) {
+	public GiaiDua523(String ten, int muaGiai) {
 		this.ten = ten;
 		this.muaGiai = muaGiai;
 	}

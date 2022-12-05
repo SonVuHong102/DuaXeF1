@@ -7,22 +7,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-import model.KetQuaTayDua;
-import model.TayDuaDaDangKy;
+import model.KetQuaTayDua523;
+import model.TayDuaDaDangKy523;
 
-public class KetQuaTayDuaDAO extends DAO {
+public class KetQuaTayDuaDAO523 extends DAO523 {
 	private Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
     
-    public KetQuaTayDuaDAO() {
+    public KetQuaTayDuaDAO523() {
     	this.con = this.getInstance();
     }
     
-    public KetQuaTayDua getKetQuaTayDuabyTayDuaDaDangKy(TayDuaDaDangKy tayDuaDaDangKy) {
-    	KetQuaTayDua result = new KetQuaTayDua();
+    public KetQuaTayDua523 getKetQuaTayDuabyTayDuaDaDangKy(TayDuaDaDangKy523 tayDuaDaDangKy) {
+    	KetQuaTayDua523 result = new KetQuaTayDua523();
     	try {
-    		String query = "SELECT * FROM tblketquataydua WHERE tblTayDuaDaDangKyid = ?";
+    		String query = "SELECT * FROM tblketquataydua523 WHERE tblTayDuaDaDangKy523id = ?";
     		ps = con.prepareStatement(query);
     		ps.setInt(1, tayDuaDaDangKy.getId());
     		rs = ps.executeQuery();
@@ -39,15 +39,15 @@ public class KetQuaTayDuaDAO extends DAO {
     	return result;
     }
     
-    public void saveKetQuaTayDua(ArrayList<KetQuaTayDua> listKetQuaTayDua) {
+    public void saveKetQuaTayDua(ArrayList<KetQuaTayDua523> listKetQuaTayDua) {
     	try {
-    		for(KetQuaTayDua kqtd: listKetQuaTayDua) {
-    			String query = "SELECT * FROM tblketquataydua WHERE id = ?";
+    		for(KetQuaTayDua523 kqtd: listKetQuaTayDua) {
+    			String query = "SELECT * FROM tblketquataydua523 WHERE id = ?";
     			ps = con.prepareStatement(query);
     			ps.setInt(1, kqtd.getId());
     			rs = ps.executeQuery();
     			if (rs.next()) {
-    				query = "UPDATE tblketquataydua SET soVongHoanThanh = ?, thoiGianHoanThanh = ?, suKien = ? WHERE id = ?";
+    				query = "UPDATE tblketquataydua523 SET soVongHoanThanh = ?, thoiGianHoanThanh = ?, suKien = ? WHERE id = ?";
     				ps = con.prepareStatement(query);
     				ps.setInt(1, kqtd.getSoVongHoanThanh());
     				ps.setInt(2, kqtd.getThoiGianHoanThanh());
@@ -55,7 +55,7 @@ public class KetQuaTayDuaDAO extends DAO {
     				ps.setInt(4, kqtd.getId());
     				ps.executeUpdate();
     			} else {
-    				query = "INSERT tblketquataydua(soVongHoanThanh,thoiGianHoanThanh,suKien, tblTayDuaDaDangKyid, tblThanhVienBanToChucid) VALUES (?,?,?,?,?)";
+    				query = "INSERT tblketquataydua523(soVongHoanThanh,thoiGianHoanThanh,suKien, tblTayDuaDaDangKy523id, tblThanhVienBanToChuc523id) VALUES (?,?,?,?,?)";
     				ps = con.prepareStatement(query);
     				ps.setInt(1, kqtd.getSoVongHoanThanh());
     				ps.setInt(2, kqtd.getThoiGianHoanThanh());

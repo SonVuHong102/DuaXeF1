@@ -14,8 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import controller.BanToChucController;
 
-import model.GiaiDua;
-import model.ThanhVienBanToChuc;
+import model.GiaiDua523;
+import model.ThanhVienBanToChuc523;
 
 /**
  * Servlet implementation class SVBanToChuc
@@ -37,10 +37,10 @@ public class SVBanToChuc extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BanToChucController btcc = new BanToChucController();
-		ArrayList<GiaiDua> listGiaiDua = btcc.getGiaiDua();
+		ArrayList<GiaiDua523> listGiaiDua = btcc.getGiaiDua();
 		request.setAttribute("listGiaiDua", listGiaiDua);
 		HttpSession session = request.getSession();
-		ThanhVienBanToChuc thanhVienBanToChuc = new ThanhVienBanToChuc(1, "username1", "password1", "username1", LocalDate.of(2000, 1, 1), "Ha Noi", "username1@gmail.com", "0123456789", 1);
+		ThanhVienBanToChuc523 thanhVienBanToChuc = new ThanhVienBanToChuc523(1, "username1", "password1", "username1", LocalDate.of(2000, 1, 1), "Ha Noi", "username1@gmail.com", "0123456789", 1);
 		session.setAttribute("thanhVienBanToChuc", thanhVienBanToChuc);
 		ServletContext sc = request.getSession().getServletContext();
 		String url = "/GDBanToChuc.jsp";

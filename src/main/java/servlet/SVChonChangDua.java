@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.CapNhatKetQuaController;
-import model.ChangDua;
-import model.KetQuaTayDua;
-import model.TayDuaDaDangKy;
+import model.ChangDua523;
+import model.KetQuaTayDua523;
+import model.TayDuaDaDangKy523;
 
 /**
  * Servlet implementation class SVChonChangDua
@@ -36,7 +36,7 @@ public class SVChonChangDua extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ArrayList<ChangDua> listChangDua = (ArrayList<ChangDua>) request.getSession().getAttribute("listChangDua");
+		ArrayList<ChangDua523> listChangDua = (ArrayList<ChangDua523>) request.getSession().getAttribute("listChangDua");
 		String tblChangDuaidStr = request.getParameter("tblChangDuaid");
 		if(tblChangDuaidStr == null) {
 			String url = "/GDCapNhatKetQua.jsp";
@@ -44,8 +44,8 @@ public class SVChonChangDua extends HttpServlet {
 			return;
 		}
 		int tblChangDuaid = Integer.parseInt(tblChangDuaidStr);
-		ChangDua changDuaDaChon = new ChangDua();
-		for(ChangDua changDua: listChangDua) {
+		ChangDua523 changDuaDaChon = new ChangDua523();
+		for(ChangDua523 changDua: listChangDua) {
 			if(changDua.getId() == tblChangDuaid) {
 				changDuaDaChon = changDua;
 				break;
@@ -53,10 +53,10 @@ public class SVChonChangDua extends HttpServlet {
 		}
 		request.setAttribute("changDuaDaChon", changDuaDaChon);
 		CapNhatKetQuaController cnkqc = new CapNhatKetQuaController();
-		ArrayList<TayDuaDaDangKy> listTayDuaDaDangKy = cnkqc.getTayDuaDaDangKybyChangDua(changDuaDaChon);
-		ArrayList<KetQuaTayDua> listKetQuaTayDua = new ArrayList<KetQuaTayDua>();
-		for(TayDuaDaDangKy tayDuaDaDangKy: listTayDuaDaDangKy) {
-			KetQuaTayDua ketQuaTayDua = cnkqc.getKetQuaTayDuabyTayDuaDaDangKy(tayDuaDaDangKy);
+		ArrayList<TayDuaDaDangKy523> listTayDuaDaDangKy = cnkqc.getTayDuaDaDangKybyChangDua(changDuaDaChon);
+		ArrayList<KetQuaTayDua523> listKetQuaTayDua = new ArrayList<KetQuaTayDua523>();
+		for(TayDuaDaDangKy523 tayDuaDaDangKy: listTayDuaDaDangKy) {
+			KetQuaTayDua523 ketQuaTayDua = cnkqc.getKetQuaTayDuabyTayDuaDaDangKy(tayDuaDaDangKy);
 			ketQuaTayDua.setTayDuaDaDangKy(tayDuaDaDangKy);
 			listKetQuaTayDua.add(ketQuaTayDua);
 		}
