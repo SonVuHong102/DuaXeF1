@@ -10,7 +10,7 @@ import model.ChangDua523;
 import model.GiaiDua523;
 
 public class ChangDuaDAO523 extends DAO523 {
-	private Connection con = null;
+	Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
     
@@ -32,5 +32,8 @@ public class ChangDuaDAO523 extends DAO523 {
     		e.printStackTrace();
     	}
     	return list;
+    }
+    public Connection getConnection() {
+    	return con;
     }
 }

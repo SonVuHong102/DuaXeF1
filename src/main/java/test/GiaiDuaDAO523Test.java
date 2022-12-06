@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Spy;
 
 import dao.GiaiDuaDAO523;
 import model.GiaiDua523;
@@ -18,6 +14,7 @@ class GiaiDuaDAO523Test {
 
 	@Test
 	void getDanhSachGiaiDuaTest_CoDuLieu() {
+		// Co giai dua
 		ArrayList<GiaiDua523> listGiaiDuaMock = new ArrayList<GiaiDua523>();
 		listGiaiDuaMock.add(new GiaiDua523(10, "mua giai 10", 2022));
 		listGiaiDuaMock.add(new GiaiDua523(9, "mua giai 9", 2021));
@@ -35,10 +32,5 @@ class GiaiDuaDAO523Test {
 			assertEquals(listGiaiDua.get(i).getTen(), listGiaiDuaMock.get(i).getTen());
 			assertEquals(listGiaiDua.get(i).getMuaGiai(), listGiaiDuaMock.get(i).getMuaGiai());
 		}
-	}
-
-	@Test
-	void getDanhSachGiaiDuaTest_KhongCoDuLieu() {
-		
 	}
 }

@@ -11,6 +11,10 @@ public class TayDua523 {
 	private DoiDua523 doiDua;
 	
 	public TayDua523() {}
+	
+	public TayDua523(int id) {
+		this.id = id;
+	}
 
 	public TayDua523(int id, String ten, LocalDate ngaySinh, String tieuSu, String quocTich, DoiDua523 doiDua) {
 		this.id = id;

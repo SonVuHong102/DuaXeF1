@@ -6,6 +6,10 @@ public class TayDuaDaDangKy523 {
 	private TayDua523 tayDua;
 	
 	public TayDuaDaDangKy523() {}
+	
+	public TayDuaDaDangKy523(int id) {
+		this.id = id;
+	}
 
 	public TayDuaDaDangKy523(int id, DonDangKy523 donDangKy, TayDua523 tayDua) {
 		this.id = id;

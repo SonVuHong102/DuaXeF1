@@ -13,7 +13,7 @@ import model.TayDua523;
 import model.TayDuaDaDangKy523;
 
 public class TayDuaDaDangKyDAO523 extends DAO523 {
-	private Connection con = null;
+	Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
     
@@ -79,5 +79,8 @@ public class TayDuaDaDangKyDAO523 extends DAO523 {
     		e.printStackTrace();
     	}
     	return list;
+    }
+    public Connection getConnection() {
+    	return con;
     }
 }

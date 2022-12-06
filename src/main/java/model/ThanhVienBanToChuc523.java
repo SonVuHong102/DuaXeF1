@@ -14,6 +14,10 @@ public class ThanhVienBanToChuc523 {
 	private int vaiTro;
 	
 	public ThanhVienBanToChuc523() {}
+	
+	public ThanhVienBanToChuc523(int id) {
+		this.id = id;
+	}
 
 	public ThanhVienBanToChuc523(int id, String tenDangNhap, String matKhau, String ten, LocalDate ngaySinh,
 			String diaChi, String email, String sdt, int vaiTro) {

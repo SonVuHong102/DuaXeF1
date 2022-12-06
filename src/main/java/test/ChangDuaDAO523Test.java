@@ -15,7 +15,24 @@ class ChangDuaDAO523Test {
 	ChangDuaDAO523 changDuaDAO = new ChangDuaDAO523();
 	
 	@Test
+	void getChangDuaByGiaiDuaTest_KhongCoDuLieu2() {
+		// Giai dua khong ton tai
+		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
+		ArrayList<ChangDua523> listChangDua = changDuaDAO.getChangDuabyGiaiDua(new GiaiDua523(25, "giai dua 25", 2027));
+		assertEquals(listChangDuaMock.size(), listChangDua.size());
+	}
+	
+	@Test
+	void getChangDuaByGiaiDuaTest_KhongCoDuLieu1() {
+		// Giai dua ton tai, khong co chang dua
+		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
+		ArrayList<ChangDua523> listChangDua = changDuaDAO.getChangDuabyGiaiDua(new GiaiDua523(8, "giai dua 8", 2020));
+		assertEquals(listChangDuaMock.size(), listChangDua.size());
+	}
+	
+	@Test
 	void getChangDuaByGiaiDuaTest_CoDuLieu1() {
+		// Giai dua ton tai, co chang dua
 		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
 		listChangDuaMock.add(new ChangDua523(1, "chang 1", 30, LocalDate.of(2022, 1, 1), "Ha Noi", null, new GiaiDua523(10, "giai dua 10", 2022)));
 		listChangDuaMock.add(new ChangDua523(2, "chang 2", 20, LocalDate.of(2022, 2, 1), "Ha Noi", null, new GiaiDua523(10, "giai dua 10", 2022)));
@@ -40,37 +57,5 @@ class ChangDuaDAO523Test {
 			assertEquals(listChangDuaMock.get(i).getGiaiDua().getTen(), listChangDua.get(i).getGiaiDua().getTen());
 			assertEquals(listChangDuaMock.get(i).getGiaiDua().getMuaGiai(), listChangDua.get(i).getGiaiDua().getMuaGiai());
 		}
-	}
-	
-	@Test
-	void getChangDuaByGiaiDuaTest_CoDuLieu2() {
-		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
-		listChangDuaMock.add(new ChangDua523(11, "chang 1", 30, LocalDate.of(2021, 1, 1), "Ha Noi", null, new GiaiDua523(9, "giai dua 9", 2021)));
-		
-		ArrayList<ChangDua523> listChangDua = changDuaDAO.getChangDuabyGiaiDua(new GiaiDua523(9, "giai dua 9", 2021));
-		for(int i=0;i<listChangDua.size();i++) {
-			assertEquals(listChangDuaMock.get(i).getId(), listChangDua.get(i).getId());
-			assertEquals(listChangDuaMock.get(i).getTen(), listChangDua.get(i).getTen());
-			assertEquals(listChangDuaMock.get(i).getSoVongDua(), listChangDua.get(i).getSoVongDua());
-			assertEquals(listChangDuaMock.get(i).getThoiGian(), listChangDua.get(i).getThoiGian());
-			assertEquals(listChangDuaMock.get(i).getDiaDiem(), listChangDua.get(i).getDiaDiem());
-			assertEquals(listChangDuaMock.get(i).getMota(), listChangDua.get(i).getMota());
-			assertEquals(listChangDuaMock.get(i).getGiaiDua().getId(), listChangDua.get(i).getGiaiDua().getId());
-			assertEquals(listChangDuaMock.get(i).getGiaiDua().getTen(), listChangDua.get(i).getGiaiDua().getTen());
-			assertEquals(listChangDuaMock.get(i).getGiaiDua().getMuaGiai(), listChangDua.get(i).getGiaiDua().getMuaGiai());
-		}
-	}
-	
-	@Test
-	void getChangDuaByGiaiDuaTest_KhongCoDuLieu1() {
-		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
-		ArrayList<ChangDua523> listChangDua = changDuaDAO.getChangDuabyGiaiDua(new GiaiDua523(8, "giai dua 8", 2020));
-		assertEquals(listChangDuaMock.size(), listChangDua.size());
-	}
-	@Test
-	void getChangDuaByGiaiDuaTest_KhongCoDuLieu2() {
-		ArrayList<ChangDua523> listChangDuaMock = new ArrayList<ChangDua523>();
-		ArrayList<ChangDua523> listChangDua = changDuaDAO.getChangDuabyGiaiDua(new GiaiDua523(25, "giai dua 25", 2027));
-		assertEquals(listChangDuaMock.size(), listChangDua.size());
 	}
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import model.GiaiDua523;
+import model.KetQuaTayDua523;
 
 public class GiaiDuaDAO523 extends DAO523 {
 	private Connection con = null;
@@ -32,5 +33,23 @@ public class GiaiDuaDAO523 extends DAO523 {
     		e.printStackTrace();
     	}
     	return list;
+    }
+    
+    public boolean removeAllGiaiDua() {
+    	boolean kq = false;
+    	try {
+			String query = "DELETE FROM tblgiaidua523";
+			ps = con.prepareStatement(query);
+			ps.executeUpdate();
+    		kq = true;
+    	} catch (Exception e) {
+    		kq = false;
+    		e.printStackTrace();
+    	}
+    	return kq;
+    }
+    
+    public Connection getConnection() {
+    	return con;
     }
 }

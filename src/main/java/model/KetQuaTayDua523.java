@@ -25,7 +25,7 @@ public class KetQuaTayDua523 {
 		this.thoiGianHoanThanhStr = getFormattedTime();
 	}
 
-	public KetQuaTayDua523(int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien, String moTa,
+	public KetQuaTayDua523(int soVongHoanThanh, int thoiGianHoanThanh, int diem, int suKien,
 			TayDuaDaDangKy523 tayDuaDaDangKy, ThanhVienBanToChuc523 thanhVienBanToChuc) {
 		this.soVongHoanThanh = soVongHoanThanh;
 		this.thoiGianHoanThanh = thoiGianHoanThanh;
@@ -108,6 +108,9 @@ public class KetQuaTayDua523 {
 	}
 	
 	public void setRawTime(String formattedTime) {
+		if(formattedTime.isBlank()) {
+			return;
+		}
 		String[] timeArray = formattedTime.split(":");
 		this.thoiGianHoanThanh = Integer.parseInt(timeArray[0])*3600 + Integer.parseInt(timeArray[1])*60 + Integer.parseInt(timeArray[2]);
 	}

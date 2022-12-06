@@ -11,7 +11,7 @@ import model.KetQuaTayDua523;
 import model.TayDuaDaDangKy523;
 
 public class KetQuaTayDuaDAO523 extends DAO523 {
-	private Connection con = null;
+	Connection con = null;
 	private PreparedStatement ps = null;
 	private ResultSet rs = null;
     
@@ -86,5 +86,8 @@ public class KetQuaTayDuaDAO523 extends DAO523 {
 			}
 		}
     	return kq;
+    }
+    public Connection getConnection() {
+    	return con;
     }
 }

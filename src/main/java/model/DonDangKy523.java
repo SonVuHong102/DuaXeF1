@@ -9,6 +9,10 @@ public class DonDangKy523 {
 	public DonDangKy523() {
 	}
 	
+	public DonDangKy523(int id) {
+		this.id = id;
+	}
+	
 	public DonDangKy523(int id, int soTayDua, ChangDua523 changDua, DoiDua523 doiDua) {
 		this.id = id;
 		this.soLuongTayDua = soTayDua;
