@@ -108,6 +108,27 @@
 		</form>
 		<c:set var="listKetQuaTayDua" scope="session"
 			value="${listKetQuaTayDua}" />
+			<%
+				Object kqObj = request.getAttribute("kq");
+				if(kqObj == null) {
+					return;
+				}
+				boolean kq = (boolean) kqObj;
+				if(kq == true) {
+					%>
+					<script type="text/javascript">
+					alert("Lưu thành công!");
+					</script>
+					<%
+				} else if(kq == false) {
+					%>
+					<script type="text/javascript">
+					alert("Lưu lỗi!");
+					history.back();
+					</script>
+					<%
+				}
+			%>
 	</div>
 </body>
 </html>

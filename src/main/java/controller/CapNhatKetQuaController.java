@@ -26,8 +26,8 @@ public class CapNhatKetQuaController {
 		return kqtdd.getKetQuaTayDuabyTayDuaDaDangKy(tayDuaDaDangKy);
 	}
 	
-	public void saveKetQuaTayDua(ArrayList<KetQuaTayDua523> listKetQuaTayDua) {
+	public boolean saveKetQuaTayDua(ArrayList<KetQuaTayDua523> listKetQuaTayDua) {
 		KetQuaTayDuaDAO523 kqtdd = new KetQuaTayDuaDAO523();
-		kqtdd.saveKetQuaTayDua(listKetQuaTayDua);
+		return kqtdd.saveKetQuaTayDua(listKetQuaTayDua);
 	}
 }

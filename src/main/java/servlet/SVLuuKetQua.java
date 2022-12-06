@@ -66,8 +66,11 @@ public class SVLuuKetQua extends HttpServlet {
 			kqtd.setThanhVienBanToChuc(thanhVienBanToChuc);
 		}
 		CapNhatKetQuaController capNhatKetQuaController = new CapNhatKetQuaController();
-		capNhatKetQuaController.saveKetQuaTayDua(listKetQuaTayDua);
-		request.getSession().removeAttribute("listKetQuaTayDua");
+		boolean kq = (boolean) capNhatKetQuaController.saveKetQuaTayDua(listKetQuaTayDua);
+		if(kq == true) {
+			request.getSession().removeAttribute("listKetQuaTayDua");
+		}
+		request.setAttribute("kq", kq);
 		String url = "/GDCapNhatKetQua.jsp";
 		request.getSession().getServletContext().getRequestDispatcher(url).forward(request, response);
 	}

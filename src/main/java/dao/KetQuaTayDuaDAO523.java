@@ -39,8 +39,10 @@ public class KetQuaTayDuaDAO523 extends DAO523 {
     	return result;
     }
     
-    public void saveKetQuaTayDua(ArrayList<KetQuaTayDua523> listKetQuaTayDua) {
+    public boolean saveKetQuaTayDua(ArrayList<KetQuaTayDua523> listKetQuaTayDua) {
+    	boolean kq = false;
     	try {
+    		this.con.setAutoCommit(false);
     		for(KetQuaTayDua523 kqtd: listKetQuaTayDua) {
     			String query = "SELECT * FROM tblketquataydua523 WHERE id = ?";
     			ps = con.prepareStatement(query);
@@ -65,8 +67,24 @@ public class KetQuaTayDuaDAO523 extends DAO523 {
     				ps.executeUpdate();
     			}
     		}
-    	} catch (SQLException e) {
+    		this.con.commit();
+    		kq = true;
+    	} catch (Exception e) {
+    		try {
+    			this.con.rollback();
+    		} catch(Exception ex) {
+    			ex.printStackTrace();
+    		}
+    		kq = false;
     		e.printStackTrace();
-    	}
+    	} finally {
+			try {
+				this.con.setAutoCommit(true);
+			} catch(Exception e) {
+				kq = false;
+				e.printStackTrace();
+			}
+		}
+    	return kq;
     }
 }

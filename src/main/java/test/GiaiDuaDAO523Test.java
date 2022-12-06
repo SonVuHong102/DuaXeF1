@@ -5,16 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.Spy;
 
 import dao.GiaiDuaDAO523;
 import model.GiaiDua523;
 
 class GiaiDuaDAO523Test {
-	
 	GiaiDuaDAO523 giaiDua523DAO = new GiaiDuaDAO523();
 
 	@Test
-	void getDanhSachGiaiDuaTest() {
+	void getDanhSachGiaiDuaTest_CoDuLieu() {
 		ArrayList<GiaiDua523> listGiaiDuaMock = new ArrayList<GiaiDua523>();
 		listGiaiDuaMock.add(new GiaiDua523(10, "mua giai 10", 2022));
 		listGiaiDuaMock.add(new GiaiDua523(9, "mua giai 9", 2021));
@@ -34,4 +37,8 @@ class GiaiDuaDAO523Test {
 		}
 	}
 
+	@Test
+	void getDanhSachGiaiDuaTest_KhongCoDuLieu() {
+		
+	}
 }
